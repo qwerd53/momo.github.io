@@ -427,13 +427,15 @@
     }
     .aplayer.aplayer-fixed.aplayer-collapsed .aplayer-info {
         transform: scaleX(0) !important;
+        overflow: hidden !important;
     }
     .aplayer.aplayer-fixed.aplayer-collapsed:hover .aplayer-info {
         transform: scaleX(0) !important;
+        overflow: hidden !important;
     }
-    /* 收起状态下隐藏控制按钮 */
+    /* 收起状态下隐藏控制按钮（保留展开按钮） */
     .aplayer.aplayer-fixed.aplayer-collapsed .aplayer-time,
-    .aplayer.aplayer-fixed.aplayer-collapsed .aplayer-icon {
+    .aplayer.aplayer-fixed.aplayer-collapsed .aplayer-play {
         display: none !important;
     }
 

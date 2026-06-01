@@ -20,9 +20,9 @@
       
         <tags>
             
-            <tag> 深度学习 </tag>
-            
             <tag> Transformer </tag>
+            
+            <tag> 深度学习 </tag>
             
             <tag> 多头自注意力 </tag>
             
@@ -49,11 +49,11 @@
       
         <tags>
             
-            <tag> 深度学习 </tag>
-            
             <tag> 交叉注意力 </tag>
             
             <tag> Transformer </tag>
+            
+            <tag> 深度学习 </tag>
             
         </tags>
       
@@ -78,9 +78,9 @@
       
         <tags>
             
-            <tag> 深度学习 </tag>
-            
             <tag> Transformer </tag>
+            
+            <tag> 深度学习 </tag>
             
             <tag> 多头注意力 </tag>
             
@@ -107,9 +107,9 @@
       
         <tags>
             
-            <tag> 深度学习 </tag>
-            
             <tag> Transformer </tag>
+            
+            <tag> 深度学习 </tag>
             
             <tag> 注意力机制 </tag>
             
@@ -136,11 +136,11 @@
       
         <tags>
             
-            <tag> 机器学习 </tag>
-            
             <tag> KMeans </tag>
             
             <tag> 聚类 </tag>
+            
+            <tag> 机器学习 </tag>
             
         </tags>
       
@@ -165,9 +165,9 @@
       
         <tags>
             
-            <tag> 算法 </tag>
-            
             <tag> 机器学习 </tag>
+            
+            <tag> 算法 </tag>
             
             <tag> 线性回归 </tag>
             
@@ -194,11 +194,11 @@
       
         <tags>
             
-            <tag> Softmax </tag>
+            <tag> 算法 </tag>
             
             <tag> 深度学习 </tag>
             
-            <tag> 算法 </tag>
+            <tag> Softmax </tag>
             
         </tags>
       
@@ -223,11 +223,11 @@
       
         <tags>
             
-            <tag> 算法 </tag>
+            <tag> 机器学习 </tag>
             
             <tag> KNN </tag>
             
-            <tag> 机器学习 </tag>
+            <tag> 算法 </tag>
             
         </tags>
       

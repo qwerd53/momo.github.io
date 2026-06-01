@@ -638,7 +638,7 @@
         xAxis: [
             {
                 type: 'category',
-                data: ["深度学习","Transformer","机器学习","算法","KNN","KMeans","聚类","Softmax","交叉注意力","线性回归"]
+                data: ["深度学习","Transformer","机器学习","算法","KMeans","聚类","Softmax","交叉注意力","KNN","多头自注意力"]
             }
         ],
         yAxis: [
@@ -794,7 +794,7 @@
         var menuIcon = ap.querySelector('.aplayer-icon-menu');
         if (!menuIcon) return;
         observer.disconnect();
-        ap.classList.add('aplayer-collapsed');
+        // 默认展开，不添加collapsed类
         positionList();
         window.addEventListener('resize', positionList);
         new MutationObserver(positionList).observe(ap, {childList: true, subtree: true});

@@ -2,12 +2,9 @@
 *.md
 .env
 download_pexels.py
-# Hexo 源码目录（本地使用，不上传）
-hexo-source/
-
+# Hexo 源码目录 （上传）
 # 构建脚本
 build.sh
-
 # 系统文件
 .DS_Store
 Thumbs.db

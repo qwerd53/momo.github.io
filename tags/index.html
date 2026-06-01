@@ -604,9 +604,49 @@
     .aplayer.aplayer-fixed.aplayer-collapsed,
     .aplayer.aplayer-fixed.aplayer-collapsed .aplayer-body {
         width: 66px !important;
+        max-width: 66px !important;
     }
     .aplayer.aplayer-fixed.aplayer-collapsed .aplayer-info {
         transform: scaleX(0) !important;
+    }
+    .aplayer.aplayer-fixed.aplayer-collapsed:hover,
+    .aplayer.aplayer-fixed.aplayer-collapsed:hover .aplayer-body {
+        width: 66px !important;
+        max-width: 66px !important;
+    }
+    .aplayer.aplayer-fixed.aplayer-collapsed:hover .aplayer-info {
+        transform: scaleX(0) !important;
+    }
+    .aplayer.aplayer-fixed.aplayer-collapsed:hover .aplayer-miniswitcher .aplayer-icon {
+        transform: rotateY(0) !important;
+    }
+
+    /* 歌单按钮：移到body上，收起状态下也可点击 */
+    .aplayer.aplayer-fixed .aplayer-list-btn {
+        position: absolute;
+        left: -28px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 28px;
+        height: 28px;
+        cursor: pointer;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(255,255,255,0.9);
+        border-radius: 2px 0 0 2px;
+        z-index: 10;
+    }
+    .aplayer.aplayer-fixed .aplayer-list-btn svg {
+        width: 16px;
+        height: 16px;
+        fill: #666;
+    }
+    .aplayer.aplayer-fixed:hover .aplayer-list-btn,
+    .aplayer.aplayer-fixed .aplayer-list-btn.show {
+        opacity: 1;
     }
 
     .aplayer.aplayer-fixed .aplayer-info {
@@ -698,16 +738,43 @@
             list.style.bottom = (window.innerHeight - rect.top) + 'px';
         }
     }
-    // MetingJS加载后初始化：默认收起 + 定位歌单
+    // MetingJS加载后初始化：默认收起 + 定位歌单 + 迁移歌单按钮
     var observer = new MutationObserver(function() {
         var ap = document.querySelector('.aplayer.aplayer-fixed');
-        if (ap) {
-            observer.disconnect();
-            ap.classList.add('aplayer-collapsed');
-            positionList();
-            window.addEventListener('resize', positionList);
-            new MutationObserver(positionList).observe(ap, {childList: true, subtree: true});
-        }
+        if (!ap) return;
+        var menuIcon = ap.querySelector('.aplayer-icon-menu');
+        if (!menuIcon) return;
+        observer.disconnect();
+        ap.classList.add('aplayer-collapsed');
+        positionList();
+        window.addEventListener('resize', positionList);
+        new MutationObserver(positionList).observe(ap, {childList: true, subtree: true});
+
+        // 把歌单按钮从.aplayer-info移到.aplayer-body，收起状态下也能点击
+        var bodyEl = ap.querySelector('.aplayer-body');
+        var btn = document.createElement('div');
+        btn.className = 'aplayer-list-btn';
+        btn.innerHTML = '<svg viewBox="0 0 1024 1024"><path d="M896 192H128c-35.2 0-64 28.8-64 64v64c0 35.2 28.8 64 64 64h768c35.2 0 64-28.8 64-64v-64c0-35.2-28.8-64-64-64zM896 448H128c-35.2 0-64 28.8-64 64v64c0 35.2 28.8 64 64 64h768c35.2 0 64-28.8 64-64v-64c0-35.2-28.8-64-64-64zM512 704H128c-35.2 0-64 28.8-64 64v64c0 35.2 28.8 64 64 64h384c35.2 0 64-28.8 64-64v-64c0-35.2-28.8-64-64-64z"/></svg>';
+        bodyEl.appendChild(btn);
+
+        // 点击歌单按钮：toggle歌单列表
+        btn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            menuIcon.click();
+            // 同步按钮高亮状态
+            var list = ap.querySelector('.aplayer-list');
+            if (list) {
+                btn.classList.toggle('show', list.style.display !== 'none');
+            }
+        });
+
+        // 同步歌单列表的显示状态到按钮高亮
+        new MutationObserver(function() {
+            var list = ap.querySelector('.aplayer-list');
+            if (list) {
+                btn.classList.toggle('show', list.style.display !== 'none');
+            }
+        }).observe(ap.querySelector('.aplayer-list'), {attributes: true, attributeFilter: ['style']});
     });
     observer.observe(document.body, {childList: true, subtree: true});
 

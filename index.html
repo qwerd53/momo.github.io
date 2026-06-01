@@ -622,12 +622,12 @@
                             <span class="chip bg-color">深度学习</span>
                         </a>
                         
-                        <a href="/momo.github.io/tags/Transformer/">
-                            <span class="chip bg-color">Transformer</span>
-                        </a>
-                        
                         <a href="/momo.github.io/tags/%E5%A4%9A%E5%A4%B4%E8%87%AA%E6%B3%A8%E6%84%8F%E5%8A%9B/">
                             <span class="chip bg-color">多头自注意力</span>
+                        </a>
+                        
+                        <a href="/momo.github.io/tags/Transformer/">
+                            <span class="chip bg-color">Transformer</span>
                         </a>
                         
                     </div>
@@ -679,12 +679,12 @@
                             <span class="chip bg-color">深度学习</span>
                         </a>
                         
-                        <a href="/momo.github.io/tags/%E4%BA%A4%E5%8F%89%E6%B3%A8%E6%84%8F%E5%8A%9B/">
-                            <span class="chip bg-color">交叉注意力</span>
-                        </a>
-                        
                         <a href="/momo.github.io/tags/Transformer/">
                             <span class="chip bg-color">Transformer</span>
+                        </a>
+                        
+                        <a href="/momo.github.io/tags/%E4%BA%A4%E5%8F%89%E6%B3%A8%E6%84%8F%E5%8A%9B/">
+                            <span class="chip bg-color">交叉注意力</span>
                         </a>
                         
                     </div>
@@ -1064,23 +1064,75 @@
         color: #42b983;
     }
 
-    /* 播放器定位到右侧中部 */
+    /* 播放器移到右侧中部 */
     .aplayer.aplayer-fixed {
         left: auto !important;
         right: 0 !important;
         top: 50% !important;
         bottom: auto !important;
         transform: translateY(-50%) !important;
+        width: 66px !important;
+        transition: width 0.3s ease !important;
     }
 
-    /* 自定义收起状态：隐藏info面板 */
-    .aplayer.aplayer-fixed.aplayer-collapsed .aplayer-info {
-        width: 0 !important;
-        overflow: hidden !important;
-        border: none !important;
+    .aplayer.aplayer-fixed:hover {
+        width: 100% !important;
+        max-width: 400px;
     }
+
+    .aplayer.aplayer-fixed .aplayer-body {
+        left: auto !important;
+        right: 0 !important;
+        bottom: auto !important;
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+        width: 66px !important;
+        transition: width 0.3s ease !important;
+        padding-left: 18px !important;
+    }
+
+    .aplayer.aplayer-fixed:hover .aplayer-body {
+        width: 100% !important;
+        max-width: 400px;
+    }
+
+    /* 收起状态：覆盖hover，保持66px */
+    .aplayer.aplayer-fixed.aplayer-collapsed,
     .aplayer.aplayer-fixed.aplayer-collapsed .aplayer-body {
         width: 66px !important;
+    }
+    .aplayer.aplayer-fixed.aplayer-collapsed .aplayer-info {
+        transform: scaleX(0) !important;
+    }
+
+    .aplayer.aplayer-fixed .aplayer-info {
+        transform: scaleX(0) !important;
+        transform-origin: right center !important;
+        transition: transform 0.3s ease !important;
+    }
+
+    .aplayer.aplayer-fixed:hover .aplayer-info {
+        transform: scaleX(1) !important;
+    }
+
+    .aplayer.aplayer-fixed .aplayer-miniswitcher {
+        left: 0 !important;
+        right: auto !important;
+        border-radius: 0 2px 2px 0 !important;
+    }
+
+    .aplayer.aplayer-fixed .aplayer-miniswitcher .aplayer-icon {
+        transform: rotateY(0) !important;
+        transition: transform 0.3s ease !important;
+    }
+
+    .aplayer.aplayer-fixed:hover .aplayer-miniswitcher .aplayer-icon {
+        transform: rotateY(180deg) !important;
+    }
+
+    .aplayer.aplayer-fixed .aplayer-lrc {
+        left: auto !important;
+        right: 0 !important;
     }
 
     /* 歌曲名黑色 */
@@ -1088,14 +1140,21 @@
         color: #000 !important;
     }
 
+    /* 封面保持1:1 */
+    .aplayer.aplayer-fixed .aplayer-pic {
+        width: 66px !important;
+        height: 66px !important;
+    }
+
     /* 歌单列表歌曲名黑色 */
     .aplayer .aplayer-list ol li {
         color: #000 !important;
     }
 
-    /* 歌单位置 */
+    /* 歌单位置：JS动态计算，显示在body正上方 */
     .aplayer.aplayer-fixed .aplayer-list {
         position: fixed !important;
+        margin-bottom: 0 !important;
         left: auto !important;
         right: 0 !important;
         z-index: 100 !important;
@@ -1138,27 +1197,13 @@
     // MetingJS加载后初始化：默认收起 + 定位歌单
     var observer = new MutationObserver(function() {
         var ap = document.querySelector('.aplayer.aplayer-fixed');
-        if (!ap) return;
-        var menuIcon = ap.querySelector('.aplayer-icon-menu');
-        if (!menuIcon) return;
-        observer.disconnect();
-        // 默认展开，不添加collapsed类
-        positionList();
-        window.addEventListener('resize', positionList);
-        new MutationObserver(positionList).observe(ap, {childList: true, subtree: true});
-
-        // 修复歌单按钮：阻止事件被父元素吞掉
-        menuIcon.addEventListener('click', function(e) {
-            e.stopPropagation();
-            var list = ap.querySelector('.aplayer-list');
-            if (list) {
-                if (list.style.display === 'none') {
-                    list.style.display = 'block';
-                } else {
-                    list.style.display = 'none';
-                }
-            }
-        });
+        if (ap) {
+            observer.disconnect();
+            ap.classList.add('aplayer-collapsed');
+            positionList();
+            window.addEventListener('resize', positionList);
+            new MutationObserver(positionList).observe(ap, {childList: true, subtree: true});
+        }
     });
     observer.observe(document.body, {childList: true, subtree: true});
 

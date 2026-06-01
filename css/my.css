@@ -20,11 +20,21 @@
     right: 0 !important;
     width: 66px !important;
     transition: width 0.3s ease !important;
+    padding-left: 18px !important;
 }
 
 .aplayer.aplayer-fixed:hover .aplayer-body {
     width: 100% !important;
     max-width: 400px;
+}
+
+/* 收起状态：覆盖hover，保持66px */
+.aplayer.aplayer-fixed.aplayer-collapsed,
+.aplayer.aplayer-fixed.aplayer-collapsed .aplayer-body {
+    width: 66px !important;
+}
+.aplayer.aplayer-fixed.aplayer-collapsed .aplayer-info {
+    transform: scaleX(0) !important;
 }
 
 .aplayer.aplayer-fixed .aplayer-lrc {
@@ -37,11 +47,7 @@
     color: #000 !important;
 }
 
-/* 封面不被miniswitcher遮挡：给body左侧留出按钮空间 */
-.aplayer.aplayer-fixed .aplayer-body {
-    padding-left: 18px !important;
-}
-
+/* 封面保持1:1 */
 .aplayer.aplayer-fixed .aplayer-pic {
     width: 66px !important;
     height: 66px !important;
@@ -52,14 +58,12 @@
     color: #000 !important;
 }
 
-/* 歌单位置：跟随body垂直居中，显示在body正上方 */
+/* 歌单位置：JS动态计算，显示在body正上方 */
 .aplayer.aplayer-fixed .aplayer-list {
     position: fixed !important;
-    bottom: calc(50vh - 66px) !important;
     margin-bottom: 0 !important;
     left: auto !important;
     right: 0 !important;
-    transform: none !important;
     z-index: 100 !important;
 }
 

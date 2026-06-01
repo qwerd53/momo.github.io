@@ -100,31 +100,3 @@
 .aplayer.aplayer-fixed.aplayer-collapsed:hover .aplayer-miniswitcher .aplayer-icon {
     transform: rotateY(0) !important;
 }
-
-/* 歌单按钮：移到body上，收起状态下也可点击 */
-.aplayer.aplayer-fixed .aplayer-list-btn {
-    position: absolute;
-    left: -28px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 28px;
-    height: 28px;
-    cursor: pointer;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(255,255,255,0.9);
-    border-radius: 2px 0 0 2px;
-    z-index: 10;
-}
-.aplayer.aplayer-fixed .aplayer-list-btn svg {
-    width: 16px;
-    height: 16px;
-    fill: #666;
-}
-.aplayer.aplayer-fixed:hover .aplayer-list-btn,
-.aplayer.aplayer-fixed .aplayer-list-btn.show {
-    opacity: 1;
-}

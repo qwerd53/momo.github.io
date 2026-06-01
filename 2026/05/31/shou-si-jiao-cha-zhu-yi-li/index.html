@@ -362,16 +362,16 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/momo.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">
-                                <span class="chip bg-color">深度学习</span>
-                            </a>
-                        
                             <a href="/momo.github.io/tags/%E4%BA%A4%E5%8F%89%E6%B3%A8%E6%84%8F%E5%8A%9B/">
                                 <span class="chip bg-color">交叉注意力</span>
                             </a>
                         
                             <a href="/momo.github.io/tags/Transformer/">
                                 <span class="chip bg-color">Transformer</span>
+                            </a>
+                        
+                            <a href="/momo.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">
+                                <span class="chip bg-color">深度学习</span>
                             </a>
                         
                     </div>
@@ -518,16 +518,16 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/momo.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">
-                                    <span class="chip bg-color">深度学习</span>
-                                </a>
-                            
                                 <a href="/momo.github.io/tags/%E4%BA%A4%E5%8F%89%E6%B3%A8%E6%84%8F%E5%8A%9B/">
                                     <span class="chip bg-color">交叉注意力</span>
                                 </a>
                             
                                 <a href="/momo.github.io/tags/Transformer/">
                                     <span class="chip bg-color">Transformer</span>
+                                </a>
+                            
+                                <a href="/momo.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">
+                                    <span class="chip bg-color">深度学习</span>
                                 </a>
                             
                         </div>
@@ -611,12 +611,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/momo.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">
-                        <span class="chip bg-color">深度学习</span>
-                    </a>
-                    
                     <a href="/momo.github.io/tags/Transformer/">
                         <span class="chip bg-color">Transformer</span>
+                    </a>
+                    
+                    <a href="/momo.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">
+                        <span class="chip bg-color">深度学习</span>
                     </a>
                     
                     <a href="/momo.github.io/tags/%E5%A4%9A%E5%A4%B4%E8%87%AA%E6%B3%A8%E6%84%8F%E5%8A%9B/">
@@ -668,12 +668,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/momo.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">
-                        <span class="chip bg-color">深度学习</span>
-                    </a>
-                    
                     <a href="/momo.github.io/tags/Transformer/">
                         <span class="chip bg-color">Transformer</span>
+                    </a>
+                    
+                    <a href="/momo.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">
+                        <span class="chip bg-color">深度学习</span>
                     </a>
                     
                     <a href="/momo.github.io/tags/%E5%A4%9A%E5%A4%B4%E6%B3%A8%E6%84%8F%E5%8A%9B/">
@@ -875,34 +875,6 @@
         transform: rotateY(0) !important;
     }
 
-    /* 歌单按钮：移到body上，收起状态下也可点击 */
-    .aplayer.aplayer-fixed .aplayer-list-btn {
-        position: absolute;
-        left: -28px;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 28px;
-        height: 28px;
-        cursor: pointer;
-        opacity: 0;
-        transition: opacity 0.3s ease;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: rgba(255,255,255,0.9);
-        border-radius: 2px 0 0 2px;
-        z-index: 10;
-    }
-    .aplayer.aplayer-fixed .aplayer-list-btn svg {
-        width: 16px;
-        height: 16px;
-        fill: #666;
-    }
-    .aplayer.aplayer-fixed:hover .aplayer-list-btn,
-    .aplayer.aplayer-fixed .aplayer-list-btn.show {
-        opacity: 1;
-    }
-
     .aplayer.aplayer-fixed .aplayer-info {
         transform: scaleX(0) !important;
         transform-origin: right center !important;
@@ -992,7 +964,7 @@
             list.style.bottom = (window.innerHeight - rect.top) + 'px';
         }
     }
-    // MetingJS加载后初始化：默认收起 + 定位歌单 + 迁移歌单按钮
+    // MetingJS加载后初始化：默认收起 + 定位歌单
     var observer = new MutationObserver(function() {
         var ap = document.querySelector('.aplayer.aplayer-fixed');
         if (!ap) return;
@@ -1004,31 +976,18 @@
         window.addEventListener('resize', positionList);
         new MutationObserver(positionList).observe(ap, {childList: true, subtree: true});
 
-        // 把歌单按钮从.aplayer-info移到.aplayer-body，收起状态下也能点击
-        var bodyEl = ap.querySelector('.aplayer-body');
-        var btn = document.createElement('div');
-        btn.className = 'aplayer-list-btn';
-        btn.innerHTML = '<svg viewBox="0 0 1024 1024"><path d="M896 192H128c-35.2 0-64 28.8-64 64v64c0 35.2 28.8 64 64 64h768c35.2 0 64-28.8 64-64v-64c0-35.2-28.8-64-64-64zM896 448H128c-35.2 0-64 28.8-64 64v64c0 35.2 28.8 64 64 64h768c35.2 0 64-28.8 64-64v-64c0-35.2-28.8-64-64-64zM512 704H128c-35.2 0-64 28.8-64 64v64c0 35.2 28.8 64 64 64h384c35.2 0 64-28.8 64-64v-64c0-35.2-28.8-64-64-64z"/></svg>';
-        bodyEl.appendChild(btn);
-
-        // 点击歌单按钮：toggle歌单列表
-        btn.addEventListener('click', function(e) {
+        // 修复歌单按钮：阻止事件被父元素吞掉
+        menuIcon.addEventListener('click', function(e) {
             e.stopPropagation();
-            menuIcon.click();
-            // 同步按钮高亮状态
             var list = ap.querySelector('.aplayer-list');
             if (list) {
-                btn.classList.toggle('show', list.style.display !== 'none');
+                if (list.style.display === 'none') {
+                    list.style.display = 'block';
+                } else {
+                    list.style.display = 'none';
+                }
             }
         });
-
-        // 同步歌单列表的显示状态到按钮高亮
-        new MutationObserver(function() {
-            var list = ap.querySelector('.aplayer-list');
-            if (list) {
-                btn.classList.toggle('show', list.style.display !== 'none');
-            }
-        }).observe(ap.querySelector('.aplayer-list'), {attributes: true, attributeFilter: ['style']});
     });
     observer.observe(document.body, {childList: true, subtree: true});
 

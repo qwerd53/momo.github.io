@@ -37,6 +37,21 @@
     color: #000 !important;
 }
 
+/* 封面不被miniswitcher遮挡：给body左侧留出按钮空间 */
+.aplayer.aplayer-fixed .aplayer-body {
+    padding-left: 18px !important;
+}
+
+.aplayer.aplayer-fixed .aplayer-pic {
+    width: 66px !important;
+    height: 66px !important;
+}
+
+/* 歌单列表歌曲名黑色 */
+.aplayer .aplayer-list ol li {
+    color: #000 !important;
+}
+
 /* 信息面板：默认隐藏，hover时显示 */
 .aplayer.aplayer-fixed .aplayer-info {
     transform: scaleX(0) !important;

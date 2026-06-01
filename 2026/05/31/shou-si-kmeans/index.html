@@ -583,12 +583,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/momo.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">
-                        <span class="chip bg-color">深度学习</span>
-                    </a>
-                    
                     <a href="/momo.github.io/tags/Transformer/">
                         <span class="chip bg-color">Transformer</span>
+                    </a>
+                    
+                    <a href="/momo.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">
+                        <span class="chip bg-color">深度学习</span>
                     </a>
                     
                     <a href="/momo.github.io/tags/%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/">
@@ -813,24 +813,27 @@
         bottom: auto !important;
         transform: translateY(-50%) !important;
         max-width: 400px;
+        overflow: visible !important;
+        background: transparent !important;
+        box-shadow: none !important;
+        border: none !important;
     }
 
     .aplayer.aplayer-fixed .aplayer-body {
-        position: fixed !important;
         left: auto !important;
         right: 0 !important;
-        top: 50% !important;
+        top: auto !important;
         bottom: auto !important;
-        transform: translateY(-50%) !important;
+        transform: none !important;
         max-width: 400px;
     }
 
     .aplayer.aplayer-fixed .aplayer-lrc {
         left: auto !important;
         right: 0 !important;
-        top: 50% !important;
+        top: auto !important;
         bottom: auto !important;
-        transform: translateY(-50%) !important;
+        transform: none !important;
     }
 
     /* 自定义：歌曲名黑色 */
@@ -838,19 +841,10 @@
         color: #000 !important;
     }
 
-    /* 自定义：收起时隐藏多余白色区域 */
-    .aplayer.aplayer-fixed {
-        overflow: visible !important;
-        background: transparent !important;
-        box-shadow: none !important;
-        border: none !important;
-    }
-
     /* 自定义：悬浮展开 */
     .aplayer.aplayer-fixed .aplayer-body {
         width: 66px !important;
         height: 66px !important;
-        transition: width 0.3s ease;
         overflow: hidden;
     }
 
@@ -870,15 +864,6 @@
 
     .aplayer.aplayer-fixed .aplayer-miniswitcher {
         display: none !important;
-    }
-
-    .aplayer.aplayer-fixed .aplayer-miniswitcher .aplayer-icon {
-        transform: rotateY(0);
-        transition: transform 0.3s ease;
-    }
-
-    .aplayer.aplayer-fixed:hover .aplayer-miniswitcher .aplayer-icon {
-        transform: rotateY(180deg);
     }
 </style>
 <div class="">

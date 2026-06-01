@@ -398,6 +398,57 @@
     }
 
     
+
+    /* 自定义：播放器移到右侧 */
+    .aplayer.aplayer-fixed {
+        left: auto !important;
+        right: 0 !important;
+    }
+
+    .aplayer.aplayer-fixed .aplayer-body {
+        left: auto !important;
+        right: 0 !important;
+    }
+
+    .aplayer.aplayer-fixed .aplayer-lrc {
+        left: auto !important;
+        right: 0 !important;
+    }
+
+    /* 自定义：歌曲名黑色 */
+    .aplayer .aplayer-info .aplayer-music .aplayer-title {
+        color: #000 !important;
+    }
+
+    /* 自定义：悬浮展开 */
+    .aplayer.aplayer-fixed .aplayer-body {
+        width: 66px !important;
+        transition: width 0.3s ease;
+    }
+
+    .aplayer.aplayer-fixed:hover .aplayer-body {
+        width: 100% !important;
+        max-width: 400px;
+    }
+
+    .aplayer.aplayer-fixed .aplayer-info {
+        transform: scaleX(0);
+        transform-origin: right center;
+        transition: transform 0.3s ease;
+    }
+
+    .aplayer.aplayer-fixed:hover .aplayer-info {
+        transform: scaleX(1);
+    }
+
+    .aplayer.aplayer-fixed .aplayer-miniswitcher .aplayer-icon {
+        transform: rotateY(0);
+        transition: transform 0.3s ease;
+    }
+
+    .aplayer.aplayer-fixed:hover .aplayer-miniswitcher .aplayer-icon {
+        transform: rotateY(180deg);
+    }
 </style>
 <div class="">
     

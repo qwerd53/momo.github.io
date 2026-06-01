@@ -362,12 +362,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/momo.github.io/tags/Transformer/">
-                                <span class="chip bg-color">Transformer</span>
-                            </a>
-                        
                             <a href="/momo.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">
                                 <span class="chip bg-color">深度学习</span>
+                            </a>
+                        
+                            <a href="/momo.github.io/tags/Transformer/">
+                                <span class="chip bg-color">Transformer</span>
                             </a>
                         
                             <a href="/momo.github.io/tags/%E5%A4%9A%E5%A4%B4%E6%B3%A8%E6%84%8F%E5%8A%9B/">
@@ -489,12 +489,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/momo.github.io/tags/Transformer/">
-                                    <span class="chip bg-color">Transformer</span>
-                                </a>
-                            
                                 <a href="/momo.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">
                                     <span class="chip bg-color">深度学习</span>
+                                </a>
+                            
+                                <a href="/momo.github.io/tags/Transformer/">
+                                    <span class="chip bg-color">Transformer</span>
                                 </a>
                             
                                 <a href="/momo.github.io/tags/%E5%A4%9A%E5%A4%B4%E6%B3%A8%E6%84%8F%E5%8A%9B/">
@@ -582,16 +582,16 @@
                 
                 <div class="card-action article-tags">
                     
+                    <a href="/momo.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">
+                        <span class="chip bg-color">深度学习</span>
+                    </a>
+                    
                     <a href="/momo.github.io/tags/%E4%BA%A4%E5%8F%89%E6%B3%A8%E6%84%8F%E5%8A%9B/">
                         <span class="chip bg-color">交叉注意力</span>
                     </a>
                     
                     <a href="/momo.github.io/tags/Transformer/">
                         <span class="chip bg-color">Transformer</span>
-                    </a>
-                    
-                    <a href="/momo.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">
-                        <span class="chip bg-color">深度学习</span>
                     </a>
                     
                 </div>
@@ -639,12 +639,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/momo.github.io/tags/Transformer/">
-                        <span class="chip bg-color">Transformer</span>
-                    </a>
-                    
                     <a href="/momo.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">
                         <span class="chip bg-color">深度学习</span>
+                    </a>
+                    
+                    <a href="/momo.github.io/tags/Transformer/">
+                        <span class="chip bg-color">Transformer</span>
                     </a>
                     
                     <a href="/momo.github.io/tags/%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/">
@@ -794,75 +794,59 @@
     }
 
     
+    /* 原始：收起时body向左隐藏，hover展开 */
     .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
         left: -66px !important;
     }
-
     .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
         left: 0px !important;
     }
-
     
 
-    /* 自定义：播放器移到右侧中部 */
+    /* 播放器移到右侧中部 */
     .aplayer.aplayer-fixed {
         left: auto !important;
         right: 0 !important;
         top: 50% !important;
         bottom: auto !important;
         transform: translateY(-50%) !important;
-        max-width: 400px;
-        overflow: visible !important;
-        background: transparent !important;
-        box-shadow: none !important;
-        border: none !important;
+    }
+
+    /* narrow模式：body向右隐藏（而非默认向左），hover时展开回来 */
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: auto !important;
+        right: 0 !important;
+        bottom: auto !important;
+        top: 50% !important;
+        transform: translateY(-50%) translateX(0) !important;
     }
 
     .aplayer.aplayer-fixed .aplayer-body {
         left: auto !important;
         right: 0 !important;
-        top: auto !important;
         bottom: auto !important;
-        transform: none !important;
-        max-width: 400px;
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+    }
+
+    .aplayer.aplayer-fixed .aplayer-miniswitcher {
+        left: 0 !important;
+        right: auto !important;
+        border-radius: 0 2px 2px 0 !important;
+    }
+
+    .aplayer.aplayer-fixed .aplayer-miniswitcher .aplayer-icon {
+        transform: rotateY(180deg) !important;
     }
 
     .aplayer.aplayer-fixed .aplayer-lrc {
         left: auto !important;
         right: 0 !important;
-        top: auto !important;
-        bottom: auto !important;
-        transform: none !important;
     }
 
-    /* 自定义：歌曲名黑色 */
+    /* 歌曲名黑色 */
     .aplayer .aplayer-info .aplayer-music .aplayer-title {
         color: #000 !important;
-    }
-
-    /* 自定义：悬浮展开 */
-    .aplayer.aplayer-fixed .aplayer-body {
-        width: 66px !important;
-        height: 66px !important;
-        overflow: hidden;
-    }
-
-    .aplayer.aplayer-fixed:hover .aplayer-body {
-        width: 100% !important;
-        max-width: 400px;
-        height: auto !important;
-    }
-
-    .aplayer.aplayer-fixed .aplayer-info {
-        display: none;
-    }
-
-    .aplayer.aplayer-fixed:hover .aplayer-info {
-        display: block;
-    }
-
-    .aplayer.aplayer-fixed .aplayer-miniswitcher {
-        display: none !important;
     }
 </style>
 <div class="">

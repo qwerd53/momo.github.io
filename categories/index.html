@@ -506,12 +506,12 @@
     }
 
     /* 自定义收起状态：隐藏info面板 */
-    .aplayer.aplayer-fixed.player-collapsed .aplayer-info {
+    .aplayer.aplayer-fixed.aplayer-collapsed .aplayer-info {
         width: 0 !important;
         overflow: hidden !important;
         border: none !important;
     }
-    .aplayer.aplayer-fixed.player-collapsed .aplayer-body {
+    .aplayer.aplayer-fixed.aplayer-collapsed .aplayer-body {
         width: 66px !important;
     }
 
@@ -558,6 +558,7 @@
 <script src="/momo.github.io/libs/aplayer/Meting.min.js"></script>
 <script>
 (function() {
+    // 动态定位歌单到body正上方（父元素有transform，fixed定位会失效）
     function positionList() {
         var list = document.querySelector('.aplayer-fixed .aplayer-list');
         var body = document.querySelector('.aplayer-fixed .aplayer-body');
@@ -566,23 +567,45 @@
             list.style.bottom = (window.innerHeight - rect.top) + 'px';
         }
     }
+    // MetingJS加载后初始化：默认收起 + 定位歌单
     var observer = new MutationObserver(function() {
         var ap = document.querySelector('.aplayer.aplayer-fixed');
         if (!ap) return;
+        var menuIcon = ap.querySelector('.aplayer-icon-menu');
+        if (!menuIcon) return;
         observer.disconnect();
-        // 默认收起
-        ap.classList.add('player-collapsed');
+        ap.classList.add('aplayer-collapsed');
         positionList();
         window.addEventListener('resize', positionList);
         new MutationObserver(positionList).observe(ap, {childList: true, subtree: true});
 
-        // 点击封面toggle收起/展开
-        ap.querySelector('.aplayer-pic').addEventListener('click', function() {
-            ap.classList.toggle('player-collapsed');
-            setTimeout(positionList, 350);
+        // 修复歌单按钮：阻止事件被父元素吞掉
+        menuIcon.addEventListener('click', function(e) {
+            e.stopPropagation();
+            var list = ap.querySelector('.aplayer-list');
+            if (list) {
+                if (list.style.display === 'none') {
+                    list.style.display = 'block';
+                } else {
+                    list.style.display = 'none';
+                }
+            }
         });
     });
     observer.observe(document.body, {childList: true, subtree: true});
+
+    // 点击展开按钮toggle：收起→展开保持，展开→收起
+    document.addEventListener('click', function(e) {
+        var btn = e.target.closest('.aplayer-fixed .aplayer-miniswitcher');
+        if (!btn) return;
+        var ap = btn.closest('.aplayer');
+        if (ap.classList.contains('aplayer-collapsed')) {
+            ap.classList.remove('aplayer-collapsed');
+        } else {
+            ap.classList.add('aplayer-collapsed');
+        }
+        setTimeout(positionList, 350);
+    });
 })();
 </script>
 

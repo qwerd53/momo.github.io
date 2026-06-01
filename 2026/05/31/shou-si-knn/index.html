@@ -362,16 +362,16 @@
                     
                     <div class="article-tag">
                         
+                            <a href="/momo.github.io/tags/KNN/">
+                                <span class="chip bg-color">KNN</span>
+                            </a>
+                        
                             <a href="/momo.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
                                 <span class="chip bg-color">机器学习</span>
                             </a>
                         
                             <a href="/momo.github.io/tags/%E7%AE%97%E6%B3%95/">
                                 <span class="chip bg-color">算法</span>
-                            </a>
-                        
-                            <a href="/momo.github.io/tags/KNN/">
-                                <span class="chip bg-color">KNN</span>
                             </a>
                         
                     </div>
@@ -487,16 +487,16 @@
                     
                         <div class="article-tag">
                             
+                                <a href="/momo.github.io/tags/KNN/">
+                                    <span class="chip bg-color">KNN</span>
+                                </a>
+                            
                                 <a href="/momo.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
                                     <span class="chip bg-color">机器学习</span>
                                 </a>
                             
                                 <a href="/momo.github.io/tags/%E7%AE%97%E6%B3%95/">
                                     <span class="chip bg-color">算法</span>
-                                </a>
-                            
-                                <a href="/momo.github.io/tags/KNN/">
-                                    <span class="chip bg-color">KNN</span>
                                 </a>
                             
                         </div>
@@ -520,6 +520,35 @@
             
         </div>
     </div>
+
+    
+        <link rel="stylesheet" href="/momo.github.io/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/momo.github.io/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/momo.github.io/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: 'Ov23lisy7Ji9j60Py6NH',
+        clientSecret: '2c634fa6b2792a67af9974813576aebc3dae71a5',
+        repo: 'momo.github.io',
+        owner: 'qwerd53',
+        admin: ["qwerd53"],
+        id: '2026-05-31T10-00-00',
+        labels: ['gitalk'],
+        distractionFreeMode: false,  // Facebook-like distraction free mode
+        redirectURL: 'https://qwerd53.github.io/momo.github.io/'
+    });
+
+    gitalk.render('gitalk-container');
+</script>
 
     
 
@@ -580,16 +609,16 @@
                 
                 <div class="card-action article-tags">
                     
+                    <a href="/momo.github.io/tags/%E7%AE%97%E6%B3%95/">
+                        <span class="chip bg-color">算法</span>
+                    </a>
+                    
                     <a href="/momo.github.io/tags/Softmax/">
                         <span class="chip bg-color">Softmax</span>
                     </a>
                     
                     <a href="/momo.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">
                         <span class="chip bg-color">深度学习</span>
-                    </a>
-                    
-                    <a href="/momo.github.io/tags/%E7%AE%97%E6%B3%95/">
-                        <span class="chip bg-color">算法</span>
                     </a>
                     
                 </div>
@@ -638,16 +667,16 @@
                 
                 <div class="card-action article-tags">
                     
+                    <a href="/momo.github.io/tags/KNN/">
+                        <span class="chip bg-color">KNN</span>
+                    </a>
+                    
                     <a href="/momo.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
                         <span class="chip bg-color">机器学习</span>
                     </a>
                     
                     <a href="/momo.github.io/tags/%E7%AE%97%E6%B3%95/">
                         <span class="chip bg-color">算法</span>
-                    </a>
-                    
-                    <a href="/momo.github.io/tags/KNN/">
-                        <span class="chip bg-color">KNN</span>
                     </a>
                     
                 </div>
@@ -798,7 +827,7 @@
         right: 0 !important;
         top: 50% !important;
         bottom: auto !important;
-        transform: translateY(-50%) !important;
+        margin-top: -33px !important;
         width: 66px !important;
         transition: width 0.3s ease !important;
     }
@@ -813,7 +842,7 @@
         right: 0 !important;
         bottom: auto !important;
         top: 50% !important;
-        transform: translateY(-50%) !important;
+        margin-top: -33px !important;
         width: 66px !important;
         transition: width 0.3s ease !important;
         padding-left: 18px !important;
@@ -897,6 +926,15 @@
         left: auto !important;
         right: 0 !important;
         z-index: 100 !important;
+        width: 400px !important;
+        max-width: 400px !important;
+        border: none !important;
+    }
+
+    /* 移除播放器信息区域顶部边框 */
+    .aplayer.aplayer-fixed .aplayer-info {
+        border-top: none !important;
+        border-bottom: none !important;
     }
 
 </style>
@@ -924,7 +962,94 @@
 <script src="/momo.github.io/libs/aplayer/Meting.min.js"></script>
 <script>
 (function() {
-    // 动态定位歌单到body正上方（父元素有transform，fixed定位会失效）
+    var STORAGE_KEY = 'aplayer-state';
+
+    // 保存播放状态到 localStorage
+    function savePlayerState() {
+        var metingJs = document.querySelector('meting-js');
+        if (!metingJs || !metingJs.aplayer) return;
+        var ap = metingJs.aplayer;
+        var state = {
+            index: ap.list.index,
+            currentTime: ap.audio.currentTime,
+            volume: ap.volume,
+            muted: ap.audio.muted,
+            playing: !ap.audio.paused
+        };
+        try {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+        } catch (e) {}
+    }
+
+    // 从 localStorage 恢复播放状态
+    function restorePlayerState() {
+        var stateStr;
+        try {
+            stateStr = localStorage.getItem(STORAGE_KEY);
+        } catch (e) {}
+        if (!stateStr) return;
+
+        var state;
+        try {
+            state = JSON.parse(stateStr);
+        } catch (e) {
+            return;
+        }
+
+        var metingJs = document.querySelector('meting-js');
+        if (!metingJs || !metingJs.aplayer) return;
+        var ap = metingJs.aplayer;
+
+        // 恢复音量
+        if (state.volume !== undefined) {
+            ap.volume(state.volume);
+        }
+        if (state.muted !== undefined) {
+            ap.audio.muted = state.muted;
+        }
+
+        // 恢复歌曲索引
+        if (state.index !== undefined && state.index !== ap.list.index) {
+            ap.list.switch(state.index);
+        }
+
+        // 恢复播放进度（需要等待歌曲加载）
+        if (state.currentTime !== undefined) {
+            var seekHandler = function() {
+                ap.audio.currentTime = state.currentTime;
+                ap.audio.removeEventListener('loadeddata', seekHandler);
+            };
+            ap.audio.addEventListener('loadeddata', seekHandler);
+        }
+
+        // 恢复播放状态
+        if (state.playing) {
+            // autoplay 可能被浏览器阻止，需要用户交互后播放
+            var playPromise = ap.play();
+            if (playPromise !== undefined) {
+                playPromise.catch(function() {
+                    // 自动播放被阻止，等待用户点击
+                    var userInteractionHandler = function() {
+                        ap.play();
+                        document.removeEventListener('click', userInteractionHandler);
+                    };
+                    document.addEventListener('click', userInteractionHandler);
+                });
+            }
+        }
+    }
+
+    // 页面卸载前保存状态
+    window.addEventListener('beforeunload', savePlayerState);
+
+    // 页面隐藏时也保存（移动端切换应用等场景）
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            savePlayerState();
+        }
+    });
+
+    // 动态定位歌单到body正上方
     function positionList() {
         var list = document.querySelector('.aplayer-fixed .aplayer-list');
         var body = document.querySelector('.aplayer-fixed .aplayer-body');
@@ -933,7 +1058,8 @@
             list.style.bottom = (window.innerHeight - rect.top) + 'px';
         }
     }
-    // MetingJS加载后初始化：默认收起 + 定位歌单
+
+    // MetingJS加载后初始化：默认收起 + 定位歌单 + 恢复状态
     var observer = new MutationObserver(function() {
         var ap = document.querySelector('.aplayer.aplayer-fixed');
         if (ap) {
@@ -942,6 +1068,15 @@
             positionList();
             window.addEventListener('resize', positionList);
             new MutationObserver(positionList).observe(ap, {childList: true, subtree: true});
+
+            // 等待 MetingJS 完全初始化后恢复状态
+            var metingJs = document.querySelector('meting-js');
+            if (metingJs && metingJs.aplayer) {
+                restorePlayerState();
+            } else {
+                // 如果 MetingJS 还没初始化完成，等待一下
+                setTimeout(restorePlayerState, 500);
+            }
         }
     });
     observer.observe(document.body, {childList: true, subtree: true});

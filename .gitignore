@@ -1,6 +1,7 @@
 
 *.md
 .env
+md/
 download_pexels.py
 # Hexo 源码目录 （上传）
 hexo-source/

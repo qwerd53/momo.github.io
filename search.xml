@@ -136,11 +136,11 @@
       
         <tags>
             
-            <tag> 机器学习 </tag>
-            
             <tag> KMeans </tag>
             
             <tag> 聚类 </tag>
+            
+            <tag> 机器学习 </tag>
             
         </tags>
       
@@ -223,9 +223,9 @@
       
         <tags>
             
-            <tag> KNN </tag>
-            
             <tag> 机器学习 </tag>
+            
+            <tag> KNN </tag>
             
             <tag> 算法 </tag>
             

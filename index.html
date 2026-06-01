@@ -622,12 +622,12 @@
                             <span class="chip bg-color">深度学习</span>
                         </a>
                         
-                        <a href="/momo.github.io/tags/%E5%A4%9A%E5%A4%B4%E8%87%AA%E6%B3%A8%E6%84%8F%E5%8A%9B/">
-                            <span class="chip bg-color">多头自注意力</span>
-                        </a>
-                        
                         <a href="/momo.github.io/tags/Transformer/">
                             <span class="chip bg-color">Transformer</span>
+                        </a>
+                        
+                        <a href="/momo.github.io/tags/%E5%A4%9A%E5%A4%B4%E8%87%AA%E6%B3%A8%E6%84%8F%E5%8A%9B/">
+                            <span class="chip bg-color">多头自注意力</span>
                         </a>
                         
                     </div>
@@ -679,12 +679,12 @@
                             <span class="chip bg-color">深度学习</span>
                         </a>
                         
-                        <a href="/momo.github.io/tags/Transformer/">
-                            <span class="chip bg-color">Transformer</span>
-                        </a>
-                        
                         <a href="/momo.github.io/tags/%E4%BA%A4%E5%8F%89%E6%B3%A8%E6%84%8F%E5%8A%9B/">
                             <span class="chip bg-color">交叉注意力</span>
+                        </a>
+                        
+                        <a href="/momo.github.io/tags/Transformer/">
+                            <span class="chip bg-color">Transformer</span>
                         </a>
                         
                     </div>
@@ -846,16 +846,16 @@
                     
                     <div class="card-action article-tags">
                         
+                        <a href="/momo.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                            <span class="chip bg-color">机器学习</span>
+                        </a>
+                        
                         <a href="/momo.github.io/tags/KMeans/">
                             <span class="chip bg-color">KMeans</span>
                         </a>
                         
                         <a href="/momo.github.io/tags/%E8%81%9A%E7%B1%BB/">
                             <span class="chip bg-color">聚类</span>
-                        </a>
-                        
-                        <a href="/momo.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
-                            <span class="chip bg-color">机器学习</span>
                         </a>
                         
                     </div>
@@ -903,12 +903,12 @@
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/momo.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
-                            <span class="chip bg-color">机器学习</span>
-                        </a>
-                        
                         <a href="/momo.github.io/tags/%E7%AE%97%E6%B3%95/">
                             <span class="chip bg-color">算法</span>
+                        </a>
+                        
+                        <a href="/momo.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                            <span class="chip bg-color">机器学习</span>
                         </a>
                         
                         <a href="/momo.github.io/tags/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/">
@@ -1017,16 +1017,16 @@
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/momo.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
-                            <span class="chip bg-color">机器学习</span>
-                        </a>
-                        
                         <a href="/momo.github.io/tags/%E7%AE%97%E6%B3%95/">
                             <span class="chip bg-color">算法</span>
                         </a>
                         
                         <a href="/momo.github.io/tags/KNN/">
                             <span class="chip bg-color">KNN</span>
+                        </a>
+                        
+                        <a href="/momo.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                            <span class="chip bg-color">机器学习</span>
                         </a>
                         
                     </div>
@@ -1103,6 +1103,14 @@
     }
     .aplayer.aplayer-fixed.aplayer-collapsed .aplayer-info {
         transform: scaleX(0) !important;
+    }
+    .aplayer.aplayer-fixed.aplayer-collapsed:hover .aplayer-info {
+        transform: scaleX(0) !important;
+    }
+    /* 收起状态下隐藏控制按钮 */
+    .aplayer.aplayer-fixed.aplayer-collapsed .aplayer-time,
+    .aplayer.aplayer-fixed.aplayer-collapsed .aplayer-icon {
+        display: none !important;
     }
 
     .aplayer.aplayer-fixed .aplayer-info {

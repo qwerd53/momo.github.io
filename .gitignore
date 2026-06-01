@@ -3,6 +3,7 @@
 .env
 download_pexels.py
 # Hexo 源码目录 （上传）
+hexo-source/
 # 构建脚本
 build.sh
 # 系统文件

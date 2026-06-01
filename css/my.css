@@ -52,6 +52,17 @@
     color: #000 !important;
 }
 
+/* 歌单位置：跟随body垂直居中，显示在body正上方 */
+.aplayer.aplayer-fixed .aplayer-list {
+    position: fixed !important;
+    bottom: calc(50vh - 66px) !important;
+    margin-bottom: 0 !important;
+    left: auto !important;
+    right: 0 !important;
+    transform: none !important;
+    z-index: 100 !important;
+}
+
 /* 信息面板：默认隐藏，hover时显示 */
 .aplayer.aplayer-fixed .aplayer-info {
     transform: scaleX(0) !important;

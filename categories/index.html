@@ -573,6 +573,30 @@
     .aplayer .aplayer-list ol li {
         color: #000 !important;
     }
+
+    /* 歌单位置：跟随body垂直居中，显示在body正上方 */
+    .aplayer.aplayer-fixed .aplayer-list {
+        position: fixed !important;
+        bottom: calc(50vh - 66px) !important;
+        margin-bottom: 0 !important;
+        left: auto !important;
+        right: 0 !important;
+        transform: none !important;
+        z-index: 100 !important;
+    }
+
+    /* 点击展开按钮后保持展开，不再因鼠标离开而收起 */
+    .aplayer.aplayer-fixed.aplayer-sticky,
+    .aplayer.aplayer-fixed.aplayer-sticky .aplayer-body {
+        width: 100% !important;
+        max-width: 400px;
+    }
+    .aplayer.aplayer-fixed.aplayer-sticky .aplayer-info {
+        transform: scaleX(1) !important;
+    }
+    .aplayer.aplayer-fixed.aplayer-sticky .aplayer-miniswitcher .aplayer-icon {
+        transform: rotateY(180deg) !important;
+    }
 </style>
 <div class="">
     
@@ -596,6 +620,15 @@
 
 <script src="/momo.github.io/libs/aplayer/APlayer.min.js"></script>
 <script src="/momo.github.io/libs/aplayer/Meting.min.js"></script>
+<script>
+// 点击展开按钮后保持展开，不再因鼠标离开而收起
+document.addEventListener('click', function(e) {
+    var btn = e.target.closest('.aplayer-fixed .aplayer-miniswitcher');
+    if (btn) {
+        btn.closest('.aplayer').classList.add('aplayer-sticky');
+    }
+});
+</script>
 
     
 

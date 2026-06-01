@@ -1,102 +1,11 @@
 /* Here is your custom css styles. */
 
-/* 音乐播放器移到右侧 + 悬浮展开 */
-/* 关键：父容器也要缩小，避免空白区域触发hover导致跳动 */
-
-.aplayer.aplayer-fixed {
-    left: auto !important;
-    right: 0 !important;
-    width: 66px !important;
-    transition: width 0.3s ease !important;
-}
-
-.aplayer.aplayer-fixed:hover {
-    width: 100% !important;
-    max-width: 400px;
-}
-
-.aplayer.aplayer-fixed .aplayer-body {
-    left: auto !important;
-    right: 0 !important;
-    width: 66px !important;
-    transition: width 0.3s ease !important;
-    padding-left: 18px !important;
-}
-
-.aplayer.aplayer-fixed:hover .aplayer-body {
-    width: 100% !important;
-    max-width: 400px;
-}
-
-/* 收起状态：覆盖hover，保持66px */
-.aplayer.aplayer-fixed.aplayer-collapsed,
-.aplayer.aplayer-fixed.aplayer-collapsed .aplayer-body {
-    width: 66px !important;
-}
-.aplayer.aplayer-fixed.aplayer-collapsed .aplayer-info {
-    transform: scaleX(0) !important;
-}
-
-.aplayer.aplayer-fixed .aplayer-lrc {
-    left: auto !important;
-    right: 0 !important;
-}
-
 /* 歌曲名改为黑色 */
 .aplayer .aplayer-info .aplayer-music .aplayer-title {
     color: #000 !important;
 }
 
-/* 封面保持1:1 */
-.aplayer.aplayer-fixed .aplayer-pic {
-    width: 66px !important;
-    height: 66px !important;
-}
-
 /* 歌单列表歌曲名黑色 */
 .aplayer .aplayer-list ol li {
     color: #000 !important;
-}
-
-/* 歌单位置：JS动态计算，显示在body正上方 */
-.aplayer.aplayer-fixed .aplayer-list {
-    position: fixed !important;
-    margin-bottom: 0 !important;
-    left: auto !important;
-    right: 0 !important;
-    z-index: 100 !important;
-}
-
-/* 信息面板：默认隐藏，hover时显示 */
-.aplayer.aplayer-fixed .aplayer-info {
-    transform: scaleX(0) !important;
-    transform-origin: right center !important;
-    transition: transform 0.3s ease !important;
-}
-
-.aplayer.aplayer-fixed:hover .aplayer-info {
-    transform: scaleX(1) !important;
-}
-
-/* 箭头方向：收起时朝右，展开时朝左 */
-.aplayer.aplayer-fixed .aplayer-miniswitcher .aplayer-icon {
-    transform: rotateY(0) !important;
-    transition: transform 0.3s ease !important;
-}
-
-.aplayer.aplayer-fixed:hover .aplayer-miniswitcher .aplayer-icon {
-    transform: rotateY(180deg) !important;
-}
-
-/* 收起状态下hover：禁止展开，保持收起 */
-.aplayer.aplayer-fixed.aplayer-collapsed:hover,
-.aplayer.aplayer-fixed.aplayer-collapsed:hover .aplayer-body {
-    width: 66px !important;
-    max-width: 66px !important;
-}
-.aplayer.aplayer-fixed.aplayer-collapsed:hover .aplayer-info {
-    transform: scaleX(0) !important;
-}
-.aplayer.aplayer-fixed.aplayer-collapsed:hover .aplayer-miniswitcher .aplayer-icon {
-    transform: rotateY(0) !important;
 }

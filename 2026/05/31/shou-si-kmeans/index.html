@@ -362,16 +362,16 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/momo.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
-                                <span class="chip bg-color">机器学习</span>
-                            </a>
-                        
                             <a href="/momo.github.io/tags/KMeans/">
                                 <span class="chip bg-color">KMeans</span>
                             </a>
                         
                             <a href="/momo.github.io/tags/%E8%81%9A%E7%B1%BB/">
                                 <span class="chip bg-color">聚类</span>
+                            </a>
+                        
+                            <a href="/momo.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                                <span class="chip bg-color">机器学习</span>
                             </a>
                         
                     </div>
@@ -490,16 +490,16 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/momo.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
-                                    <span class="chip bg-color">机器学习</span>
-                                </a>
-                            
                                 <a href="/momo.github.io/tags/KMeans/">
                                     <span class="chip bg-color">KMeans</span>
                                 </a>
                             
                                 <a href="/momo.github.io/tags/%E8%81%9A%E7%B1%BB/">
                                     <span class="chip bg-color">聚类</span>
+                                </a>
+                            
+                                <a href="/momo.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                                    <span class="chip bg-color">机器学习</span>
                                 </a>
                             
                         </div>
@@ -583,12 +583,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/momo.github.io/tags/Transformer/">
-                        <span class="chip bg-color">Transformer</span>
-                    </a>
-                    
                     <a href="/momo.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">
                         <span class="chip bg-color">深度学习</span>
+                    </a>
+                    
+                    <a href="/momo.github.io/tags/Transformer/">
+                        <span class="chip bg-color">Transformer</span>
                     </a>
                     
                     <a href="/momo.github.io/tags/%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/">
@@ -794,87 +794,23 @@
         color: #42b983;
     }
 
-    /* 播放器移到右侧中部 */
+    /* 播放器定位到右侧中部 */
     .aplayer.aplayer-fixed {
         left: auto !important;
         right: 0 !important;
         top: 50% !important;
         bottom: auto !important;
         transform: translateY(-50%) !important;
+    }
+
+    /* 自定义收起状态：隐藏info面板 */
+    .aplayer.aplayer-fixed.player-collapsed .aplayer-info {
+        width: 0 !important;
+        overflow: hidden !important;
+        border: none !important;
+    }
+    .aplayer.aplayer-fixed.player-collapsed .aplayer-body {
         width: 66px !important;
-        transition: width 0.3s ease !important;
-    }
-
-    .aplayer.aplayer-fixed:hover {
-        width: 100% !important;
-        max-width: 400px;
-    }
-
-    .aplayer.aplayer-fixed .aplayer-body {
-        left: auto !important;
-        right: 0 !important;
-        bottom: auto !important;
-        top: 50% !important;
-        transform: translateY(-50%) !important;
-        width: 66px !important;
-        transition: width 0.3s ease !important;
-        padding-left: 18px !important;
-    }
-
-    .aplayer.aplayer-fixed:hover .aplayer-body {
-        width: 100% !important;
-        max-width: 400px;
-    }
-
-    /* 收起状态：覆盖hover，保持66px */
-    .aplayer.aplayer-fixed.aplayer-collapsed,
-    .aplayer.aplayer-fixed.aplayer-collapsed .aplayer-body {
-        width: 66px !important;
-        max-width: 66px !important;
-    }
-    .aplayer.aplayer-fixed.aplayer-collapsed .aplayer-info {
-        transform: scaleX(0) !important;
-    }
-    .aplayer.aplayer-fixed.aplayer-collapsed:hover,
-    .aplayer.aplayer-fixed.aplayer-collapsed:hover .aplayer-body {
-        width: 66px !important;
-        max-width: 66px !important;
-    }
-    .aplayer.aplayer-fixed.aplayer-collapsed:hover .aplayer-info {
-        transform: scaleX(0) !important;
-    }
-    .aplayer.aplayer-fixed.aplayer-collapsed:hover .aplayer-miniswitcher .aplayer-icon {
-        transform: rotateY(0) !important;
-    }
-
-    .aplayer.aplayer-fixed .aplayer-info {
-        transform: scaleX(0) !important;
-        transform-origin: right center !important;
-        transition: transform 0.3s ease !important;
-    }
-
-    .aplayer.aplayer-fixed:hover .aplayer-info {
-        transform: scaleX(1) !important;
-    }
-
-    .aplayer.aplayer-fixed .aplayer-miniswitcher {
-        left: 0 !important;
-        right: auto !important;
-        border-radius: 0 2px 2px 0 !important;
-    }
-
-    .aplayer.aplayer-fixed .aplayer-miniswitcher .aplayer-icon {
-        transform: rotateY(0) !important;
-        transition: transform 0.3s ease !important;
-    }
-
-    .aplayer.aplayer-fixed:hover .aplayer-miniswitcher .aplayer-icon {
-        transform: rotateY(180deg) !important;
-    }
-
-    .aplayer.aplayer-fixed .aplayer-lrc {
-        left: auto !important;
-        right: 0 !important;
     }
 
     /* 歌曲名黑色 */
@@ -882,21 +818,14 @@
         color: #000 !important;
     }
 
-    /* 封面保持1:1 */
-    .aplayer.aplayer-fixed .aplayer-pic {
-        width: 66px !important;
-        height: 66px !important;
-    }
-
     /* 歌单列表歌曲名黑色 */
     .aplayer .aplayer-list ol li {
         color: #000 !important;
     }
 
-    /* 歌单位置：JS动态计算，显示在body正上方 */
+    /* 歌单位置 */
     .aplayer.aplayer-fixed .aplayer-list {
         position: fixed !important;
-        margin-bottom: 0 !important;
         left: auto !important;
         right: 0 !important;
         z-index: 100 !important;
@@ -927,7 +856,6 @@
 <script src="/momo.github.io/libs/aplayer/Meting.min.js"></script>
 <script>
 (function() {
-    // 动态定位歌单到body正上方（父元素有transform，fixed定位会失效）
     function positionList() {
         var list = document.querySelector('.aplayer-fixed .aplayer-list');
         var body = document.querySelector('.aplayer-fixed .aplayer-body');
@@ -936,45 +864,23 @@
             list.style.bottom = (window.innerHeight - rect.top) + 'px';
         }
     }
-    // MetingJS加载后初始化：默认收起 + 定位歌单
     var observer = new MutationObserver(function() {
         var ap = document.querySelector('.aplayer.aplayer-fixed');
         if (!ap) return;
-        var menuIcon = ap.querySelector('.aplayer-icon-menu');
-        if (!menuIcon) return;
         observer.disconnect();
-        ap.classList.add('aplayer-collapsed');
+        // 默认收起
+        ap.classList.add('player-collapsed');
         positionList();
         window.addEventListener('resize', positionList);
         new MutationObserver(positionList).observe(ap, {childList: true, subtree: true});
 
-        // 修复歌单按钮：阻止事件被父元素吞掉
-        menuIcon.addEventListener('click', function(e) {
-            e.stopPropagation();
-            var list = ap.querySelector('.aplayer-list');
-            if (list) {
-                if (list.style.display === 'none') {
-                    list.style.display = 'block';
-                } else {
-                    list.style.display = 'none';
-                }
-            }
+        // 点击封面toggle收起/展开
+        ap.querySelector('.aplayer-pic').addEventListener('click', function() {
+            ap.classList.toggle('player-collapsed');
+            setTimeout(positionList, 350);
         });
     });
     observer.observe(document.body, {childList: true, subtree: true});
-
-    // 点击展开按钮toggle：收起→展开保持，展开→收起
-    document.addEventListener('click', function(e) {
-        var btn = e.target.closest('.aplayer-fixed .aplayer-miniswitcher');
-        if (!btn) return;
-        var ap = btn.closest('.aplayer');
-        if (ap.classList.contains('aplayer-collapsed')) {
-            ap.classList.remove('aplayer-collapsed');
-        } else {
-            ap.classList.add('aplayer-collapsed');
-        }
-        setTimeout(positionList, 350);
-    });
 })();
 </script>
 
@@ -985,7 +891,7 @@
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2026</span>
+                <span id="year">2026</span>
             
             <a href="/momo.github.io/about" target="_blank">qwerd53</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>

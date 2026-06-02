@@ -368,20 +368,22 @@
 
 
 <script>
-    // 每天切换 banner 图.  Switch banner image every day.
-    var bannerUrl = "/momo.github.io/medias/banner/" + new Date().getDay() + '.jpg';
+    // 随机选择 banner 图.  Randomly select a banner image.
+    var bannerCount = 7;
+    var bannerUrl = "/momo.github.io/medias/banner/" + Math.floor(Math.random() * bannerCount) + '.jpg';
     $('.bg-cover').css('background-image', 'url(' + bannerUrl + ')');
 </script>
 <script>
     (function() {
         var IMG_COUNT = 24;
         var BASE_URL = "/momo.github.io/medias/featureimages/";
-        var DAY_BASE_URL = "/momo.github.io/medias/banner/";
+        var BANNER_URL = "/momo.github.io/medias/banner/";
+        var BANNER_COUNT = 7;
 
         
-        var currentIndex = new Date().getDay();
-        var IMG_COUNT = 7;
-        var BASE_URL = DAY_BASE_URL;
+        var currentIndex = Math.floor(Math.random() * BANNER_COUNT);
+        var IMG_COUNT = BANNER_COUNT;
+        var BASE_URL = BANNER_URL;
         
 
         function setBanner(index) {

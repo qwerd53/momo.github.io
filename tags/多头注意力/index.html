@@ -368,20 +368,22 @@
 
 
 <script>
-    // 每天切换 banner 图.  Switch banner image every day.
-    var bannerUrl = "/momo.github.io/medias/banner/" + new Date().getDay() + '.jpg';
+    // 随机选择 banner 图.  Randomly select a banner image.
+    var bannerCount = 7;
+    var bannerUrl = "/momo.github.io/medias/banner/" + Math.floor(Math.random() * bannerCount) + '.jpg';
     $('.bg-cover').css('background-image', 'url(' + bannerUrl + ')');
 </script>
 <script>
     (function() {
         var IMG_COUNT = 24;
         var BASE_URL = "/momo.github.io/medias/featureimages/";
-        var DAY_BASE_URL = "/momo.github.io/medias/banner/";
+        var BANNER_URL = "/momo.github.io/medias/banner/";
+        var BANNER_COUNT = 7;
 
         
-        var currentIndex = new Date().getDay();
-        var IMG_COUNT = 7;
-        var BASE_URL = DAY_BASE_URL;
+        var currentIndex = Math.floor(Math.random() * BANNER_COUNT);
+        var IMG_COUNT = BANNER_COUNT;
+        var BASE_URL = BANNER_URL;
         
 
         function setBanner(index) {
@@ -492,10 +494,10 @@
                 </a>
                 
                 
-                <a href="/momo.github.io/tags/%E5%A4%9A%E5%A4%B4%E6%B3%A8%E6%84%8F%E5%8A%9B/" title="多头注意力: 1">
+                <a href="/momo.github.io/tags/%E4%BA%A4%E5%8F%89%E6%B3%A8%E6%84%8F%E5%8A%9B/" title="交叉注意力: 1">
                     <span class="chip center-align waves-effect waves-light
-                             chip-active "
-                            data-tagname="多头注意力" style="background-color: #D7BDE2;">多头注意力
+                             chip-default "
+                            data-tagname="交叉注意力" style="background-color: #D7BDE2;">交叉注意力
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -510,10 +512,10 @@
                 </a>
                 
                 
-                <a href="/momo.github.io/tags/%E4%BA%A4%E5%8F%89%E6%B3%A8%E6%84%8F%E5%8A%9B/" title="交叉注意力: 1">
+                <a href="/momo.github.io/tags/%E5%A4%9A%E5%A4%B4%E6%B3%A8%E6%84%8F%E5%8A%9B/" title="多头注意力: 1">
                     <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="交叉注意力" style="background-color: #85C1E9;">交叉注意力
+                             chip-active "
+                            data-tagname="多头注意力" style="background-color: #85C1E9;">多头注意力
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -556,7 +558,7 @@
         <div class="row tags-posts">
             
             
-            <div class="article tag-post col s12 m6 l4" data-tags="深度学习, 多头注意力, Transformer" data-aos="fade-up">
+            <div class="article tag-post col s12 m6 l4" data-tags="深度学习, Transformer, 多头注意力" data-aos="fade-up">
                 <div class="card">
                     <a href="/momo.github.io/2026/05/31/shou-si-duo-tou-zhu-yi-li/">
                         <div class="card-image tag-image">

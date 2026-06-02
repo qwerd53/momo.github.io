@@ -379,7 +379,9 @@
         var DAY_BASE_URL = "/momo.github.io/medias/banner/";
 
         
-        var currentIndex = Math.floor(Math.random() * IMG_COUNT);
+        var currentIndex = new Date().getDay();
+        var IMG_COUNT = 7;
+        var BASE_URL = DAY_BASE_URL;
         
 
         function setBanner(index) {
@@ -508,19 +510,19 @@
                 </a>
                 
                 
-                <a href="/momo.github.io/tags/%E5%A4%9A%E5%A4%B4%E8%87%AA%E6%B3%A8%E6%84%8F%E5%8A%9B/" title="多头自注意力: 1">
+                <a href="/momo.github.io/tags/%E5%A4%9A%E5%A4%B4%E6%B3%A8%E6%84%8F%E5%8A%9B/" title="多头注意力: 1">
                     <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="多头自注意力" style="background-color: #85C1E9;">多头自注意力
+                             chip-active "
+                            data-tagname="多头注意力" style="background-color: #85C1E9;">多头注意力
                         <span class="tag-length">1</span>
                     </span>
                 </a>
                 
                 
-                <a href="/momo.github.io/tags/%E5%A4%9A%E5%A4%B4%E6%B3%A8%E6%84%8F%E5%8A%9B/" title="多头注意力: 1">
+                <a href="/momo.github.io/tags/%E5%A4%9A%E5%A4%B4%E8%87%AA%E6%B3%A8%E6%84%8F%E5%8A%9B/" title="多头自注意力: 1">
                     <span class="chip center-align waves-effect waves-light
-                             chip-active "
-                            data-tagname="多头注意力" style="background-color: #F8C471;">多头注意力
+                             chip-default "
+                            data-tagname="多头自注意力" style="background-color: #F8C471;">多头自注意力
                         <span class="tag-length">1</span>
                     </span>
                 </a>

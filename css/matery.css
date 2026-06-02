@@ -587,6 +587,40 @@ header .go-back i {
     color: #eee;
 }
 
+/* 首页大图手动切换箭头按钮 */
+.banner-nav-btn {
+    position: absolute;
+    bottom: 24px;
+    z-index: 10;
+    width: 42px;
+    height: 42px;
+    line-height: 42px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.35);
+    text-align: center;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.banner-nav-btn:hover {
+    background: rgba(0, 0, 0, 0.6);
+    transform: scale(1.1);
+}
+
+.banner-nav-btn i {
+    color: #fff;
+    font-size: 1.1rem;
+    line-height: 42px;
+}
+
+.banner-nav-left {
+    left: 24px;
+}
+
+.banner-nav-right {
+    right: 24px;
+}
+
 .bg-cover .post-title {
     margin: 0 auto;
     font-size: 2.5rem;

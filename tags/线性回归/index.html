@@ -373,13 +373,43 @@
     $('.bg-cover').css('background-image', 'url(' + bannerUrl + ')');
 </script>
 <script>
-    
-      var bannerUrl = "/momo.github.io/medias/featureimages/" + Math.floor(Math.random() * 24) + '.jpg';
-    
-    $('.bg-cover.about-cover').css('background-image', 'url(' + bannerUrl + ')');
+    (function() {
+        var IMG_COUNT = 24;
+        var BASE_URL = "/momo.github.io/medias/featureimages/";
+        var DAY_BASE_URL = "/momo.github.io/medias/banner/";
 
+        
+        var currentIndex = Math.floor(Math.random() * IMG_COUNT);
+        
+
+        function setBanner(index) {
+            var url = BASE_URL + index + '.jpg';
+            $('.bg-cover.about-cover').css('background-image', 'url(' + url + ')');
+        }
+
+        // 初始设置
+        setBanner(currentIndex);
+
+        // 绑定翻页按钮
+        $(document).on('click', '#banner-prev', function() {
+            currentIndex = (currentIndex - 1 + IMG_COUNT) % IMG_COUNT;
+            setBanner(currentIndex);
+        });
+        $(document).on('click', '#banner-next', function() {
+            currentIndex = (currentIndex + 1) % IMG_COUNT;
+            setBanner(currentIndex);
+        });
+    })();
 </script>
 
+
+<!-- 手动切换 banner 背景图的箭头按钮 -->
+<a id="banner-prev" class="banner-nav-btn banner-nav-left" href="javascript:;">
+    <i class="fas fa-chevron-left"></i>
+</a>
+<a id="banner-next" class="banner-nav-btn banner-nav-right" href="javascript:;">
+    <i class="fas fa-chevron-right"></i>
+</a>
 
     </div>
 </div>
@@ -424,10 +454,28 @@
                 </a>
                 
                 
+                <a href="/momo.github.io/tags/KNN/" title="KNN: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="KNN" style="background-color: #E8F8F5;">KNN
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/momo.github.io/tags/%E7%AE%97%E6%B3%95/" title="算法: 3">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="算法" style="background-color: #FEF9E7;">算法
+                        <span class="tag-length">3</span>
+                    </span>
+                </a>
+                
+                
                 <a href="/momo.github.io/tags/Softmax/" title="Softmax: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="Softmax" style="background-color: #E8F8F5;">Softmax
+                            data-tagname="Softmax" style="background-color: #F8F9F9;">Softmax
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -436,26 +484,8 @@
                 <a href="/momo.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" title="深度学习: 5">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="深度学习" style="background-color: #FEF9E7;">深度学习
+                            data-tagname="深度学习" style="background-color: #82E0AA;">深度学习
                         <span class="tag-length">5</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/momo.github.io/tags/%E7%AE%97%E6%B3%95/" title="算法: 3">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="算法" style="background-color: #F8F9F9;">算法
-                        <span class="tag-length">3</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/momo.github.io/tags/KNN/" title="KNN: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="KNN" style="background-color: #82E0AA;">KNN
-                        <span class="tag-length">1</span>
                     </span>
                 </a>
                 
@@ -478,28 +508,19 @@
                 </a>
                 
                 
-                <a href="/momo.github.io/tags/%E5%A4%9A%E5%A4%B4%E6%B3%A8%E6%84%8F%E5%8A%9B/" title="多头注意力: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="多头注意力" style="background-color: #85C1E9;">多头注意力
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
                 <a href="/momo.github.io/tags/%E5%A4%9A%E5%A4%B4%E8%87%AA%E6%B3%A8%E6%84%8F%E5%8A%9B/" title="多头自注意力: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="多头自注意力" style="background-color: #F8C471;">多头自注意力
+                            data-tagname="多头自注意力" style="background-color: #85C1E9;">多头自注意力
                         <span class="tag-length">1</span>
                     </span>
                 </a>
                 
                 
-                <a href="/momo.github.io/tags/%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/" title="注意力机制: 1">
+                <a href="/momo.github.io/tags/%E5%A4%9A%E5%A4%B4%E6%B3%A8%E6%84%8F%E5%8A%9B/" title="多头注意力: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="注意力机制" style="background-color: #F9E79F;">注意力机制
+                            data-tagname="多头注意力" style="background-color: #F8C471;">多头注意力
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -508,7 +529,16 @@
                 <a href="/momo.github.io/tags/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/" title="线性回归: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-active "
-                            data-tagname="线性回归" style="background-color: #F5EEF8;">线性回归
+                            data-tagname="线性回归" style="background-color: #F9E79F;">线性回归
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/momo.github.io/tags/%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/" title="注意力机制: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="注意力机制" style="background-color: #F9EBEA;">注意力机制
                         <span class="tag-length">1</span>
                     </span>
                 </a>

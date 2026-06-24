@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>SSH 连接 root 报错排查与解决</title>
+      <link href="/momo.github.io/2026/06/24/ssh-lian-jie-root-bao-cuo-pai-cha-yu-jie-jue/"/>
+      <url>/momo.github.io/2026/06/24/ssh-lian-jie-root-bao-cuo-pai-cha-yu-jie-jue/</url>
+      
+        <content type="html"><![CDATA[<p>在通过 SSH 连接 Linux 服务器（尤其是 Ubuntu）时，如果出现 <code>Permission denied, please try again.</code> 错误，通常有两种最可能的原因：</p><ol><li><strong>密码确实输错了</strong>（比如大小写、特殊字符，或者小键盘没开启）。</li><li><strong>服务器默认禁用了 root 用户的远程 SSH 密码登录权限</strong>（出于安全考虑，很多云服务器或新系统默认都不允许 root 密码直接登录）。</li></ol><p>由于此时无法通过 SSH 连上，请尝试以下排查和解决方法：</p><hr><h3 id="方案一：检查是否应该用-ubuntu-用户登录"><a href="#方案一：检查是否应该用-ubuntu-用户登录" class="headerlink" title="方案一：检查是否应该用 ubuntu 用户登录"></a>方案一：检查是否应该用 ubuntu 用户登录</h3><p>如果是标准的 Ubuntu 镜像，默认的管理员用户名通常是 <code>ubuntu</code> 而不是 <code>root</code>。</p><p>请在本地终端中尝试以下命令：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh ubuntu@100.81.118.98</span><br></pre></td></tr></table></figure><p>如果能连上，说明该服务器的默认用户是 <code>ubuntu</code>。登录进去之后，如果需要 root 权限，可以再执行以下命令切换：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> -i</span><br></pre></td></tr></table></figure><hr><h3 id="方案二：开启服务器的-root-登录权限"><a href="#方案二：开启服务器的-root-登录权限" class="headerlink" title="方案二：开启服务器的 root 登录权限"></a>方案二：开启服务器的 root 登录权限</h3><p>如果你确定必须用 <code>root</code> 用户登录，并且密码没有记错，你需要通过云服务器控制台的<strong>网页 VNC 终端</strong>（或者先用其他能连上的普通用户登录进去），修改 SSH 的配置文件。</p><p>打开服务器内部终端后，按照以下步骤操作：</p><h4 id="1-修改-SSH-配置文件"><a href="#1-修改-SSH-配置文件" class="headerlink" title="1. 修改 SSH 配置文件"></a>1. 修改 SSH 配置文件</h4><p>执行命令编辑配置文件：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> nano /etc/ssh/sshd_config</span><br></pre></td></tr></table></figure><h4 id="2-修改配置项"><a href="#2-修改配置项" class="headerlink" title="2. 修改配置项"></a>2. 修改配置项</h4><p>在文件中找到这两行（如果前面有 <code>#</code> 号，记得把 <code>#</code> 删掉进行去注释）：</p><ul><li>找到 <code>PermitRootLogin</code>，将其修改为：<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PermitRootLogin yes</span><br></pre></td></tr></table></figure></li><li>找到 <code>PasswordAuthentication</code>，确保其为：<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PasswordAuthentication yes</span><br></pre></td></tr></table></figure></li></ul><blockquote><p>💡 <strong>Nano 编辑器小提示</strong>：修改完成后，按 <code>Ctrl + O</code> 然后回车保存，再按 <code>Ctrl + X</code> 退出。</p></blockquote><h4 id="3-重启-SSH-服务使配置生效"><a href="#3-重启-SSH-服务使配置生效" class="headerlink" title="3. 重启 SSH 服务使配置生效"></a>3. 重启 SSH 服务使配置生效</h4><p>运行以下命令重启服务：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> systemctl restart sshd</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Linux运维 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> SSH </tag>
+            
+            <tag> Linux </tag>
+            
+            <tag> Ubuntu </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>手撕多头自注意力机制</title>
       <link href="/momo.github.io/2026/05/31/shou-si-duo-tou-zi-zhu-yi-li/"/>
       <url>/momo.github.io/2026/05/31/shou-si-duo-tou-zi-zhu-yi-li/</url>
@@ -194,11 +223,11 @@
       
         <tags>
             
-            <tag> 算法 </tag>
-            
             <tag> Softmax </tag>
             
             <tag> 深度学习 </tag>
+            
+            <tag> 算法 </tag>
             
         </tags>
       
@@ -225,9 +254,9 @@
             
             <tag> 机器学习 </tag>
             
-            <tag> KNN </tag>
-            
             <tag> 算法 </tag>
+            
+            <tag> KNN </tag>
             
         </tags>
       

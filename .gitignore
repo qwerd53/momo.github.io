@@ -1,5 +1,6 @@
 
 *.md
+!AGENTS.md
 .env
 md/
 download_pexels.py
